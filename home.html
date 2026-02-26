@@ -10,15 +10,28 @@
         body {
             background-color: rgb(245, 124, 31);
             margin: 0;
+            color: white;
         }
-        
-        .kantin{
-            width: 250px;
-            border-radius: 10%;
-            margin: auto 30px;
-            display: flex;
-            padding: 20px;
 
+
+
+        .logo {
+            padding-left: 20px;
+        }
+
+        .logo img {
+            width: 277px;
+            height: auto;
+            display: block;
+            margin: 20px 0 0 0;
+        }
+
+        .kantin {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10%;
+            display: block;
+            margin: 15px auto;
         }
 
         .bottom-nav{
@@ -33,11 +46,15 @@
             padding: 15px 0;
             box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
 
+        }
+        .bottom-nav {
+
             display: flex;
             bottom: 0;
-            padding: 12px;
-            background: aliceblue;
-            justify-content: center;
+            padding: 10px;
+            background: rgb(255, 255, 255);
+           justify-content: space-evenly;
+
 
         }    
 
@@ -48,7 +65,14 @@
         .bottom-nav a{
             margin: 20px;
             color: #333;
-            font-size: 22px;
+
+
+        }
+
+        .bottom-nav a {
+         
+            font-size: 30px;
+
         }
 
         .bottom-nav a:active {
@@ -59,13 +83,14 @@
 </head>
 
 <body>
+
     <div class="logo">
-        <img src="logo.png" alt="KantinKita">
+        <img src="logo.svg" alt="KantinKita">
     </div>
     <h1>Pilih Kantin <b>Favorit Kamu</b></h1>
     <div>
-        <img src="kantin1.jpg"  class="kantin" alt="kantin1">
-        <img src="kantin2.jpg"  class="kantin" alt="kantin2">
+        <img src="kantin1.jpg" class="kantin" alt="kantin1">
+        <img src="kantin2.jpg" class="kantin" alt="kantin2">
     </div>
 
 
@@ -74,6 +99,8 @@
         <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         <a href="#"><i class="fa-solid fa-user"></i></a>
     </nav>
+
+
 
 </body>
 
