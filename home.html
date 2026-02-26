@@ -22,18 +22,39 @@
         }
 
         .bottom-nav{
+            position: fixed;
+            left: 50%;  
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 400%;
+
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+
             display: flex;
             bottom: 0;
             padding: 12px;
             background: aliceblue;
             justify-content: center;
 
-
         }    
+
+        body {
+            padding-bottom: 80px;
+        }
         
         .bottom-nav a{
-         margin: 20px;
+            margin: 20px;
+            color: #333;
+            font-size: 22px;
         }
+
+        .bottom-nav a:active {
+            color: orange;
+        }
+        
     </style>
 </head>
 
