@@ -4,73 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>KantinKita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-color: rgb(245, 124, 31);
-            margin: 0;
+            background-color: #F47B20;
+            margin: 0 auto;
             color: white;
+            padding-bottom: 80px;
+
         }
 
 
 
-        .logo {
-            padding-left: 20px;
-        }
+        .logo {}
 
         .logo img {
-            width: 277px;
+
+            width: 40%;
+            min-width: 180px;
+            max-width: 400px;
             height: auto;
-            display: block;
-            margin: 20px 0 0 0;
+            padding: 16px 24px;
         }
 
-        .kantin {
+
+        .teks {
+            font-family: 'Poppins', sans-serif;
+
+            /* font-family: "Poppins";
+            font-size: 32px;
+            font-family: Poppins; */
+            font-weight: 400;
+            font-style: Light;
+            font-size: 32px;
+            padding: 20px;
+            line-height: 29px;
+            letter-spacing: -2%;
+
+        }
+
+        .teks b {
+            font-weight: 600;
+            /* bold */
+        }
+
+        .kantin {}
+
+        /* CSS FOTO KANTIN  */
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .div1 {
+            grid-row: span 1 / span 1;
+            padding: 5px 10px 16px 0px;
+
+        }
+
+
+
+        .div1 img {
             width: 100%;
-            max-width: 250px;
-            border-radius: 10%;
+            width: 80%;
+            margin: 0px auto;
             display: block;
-            margin: 15px auto;
+            border-radius: 20px;
         }
 
-        .bottom-nav{
+        @media (max-width: 768px) {
+
+            .parent {
+                grid-template-columns: 1fr;
+                /* tetap 1 kolom */
+                justify-items: center;
+
+            }
+
+            .div1 {
+                width: 85%;
+                max-width: 300px;
+                padding-bottom: 40px;
+            }
+
+        }
+
+        .bottom-nav {
             position: fixed;
-            left: 50%;  
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
             width: 100%;
-            max-width: 400%;
-
-            justify-content: space-around;
+            display: flex;
+            justify-content: space-evenly;
             align-items: center;
             padding: 15px 0;
-            box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
-
+            background: white;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px 20px 0 0;
         }
-        .bottom-nav {
 
-            display: flex;
-            bottom: 0;
+
+        body {}
+
+        .bottom-nav a {
             padding: 10px;
-            background: rgb(255, 255, 255);
-           justify-content: space-evenly;
-
-
-        }    
-
-        body {
-            padding-bottom: 80px;
-        }
-        
-        .bottom-nav a{
-            margin: 20px;
             color: #333;
 
 
         }
 
         .bottom-nav a {
-         
+
             font-size: 30px;
 
         }
@@ -78,30 +129,50 @@
         .bottom-nav a:active {
             color: orange;
         }
-        
     </style>
 </head>
 
 <body>
+    <div class="container">
 
-    <div class="logo">
-        <img src="logo.svg" alt="KantinKita">
+
+
+        <div class="logo">
+            <img src="logo.svg" alt="KantinKita">
+        </div>
+        <h1 class="teks">Pilih Kantin <b>Favorit Kamu</b></h1>
+
+        <!-- FOTO KANTIN -->
+
+        <div class="kantin">
+
+            <div class="parent">
+                <div class="div1">
+                    <img src="kantin1.jpg" alt="kantin1">
+                </div>
+                <div class="div1">
+                    <img src="kantin2.jpg" alt="kantin2">
+                </div>
+                <div class="div1">
+                    <img src="kantin3.jpg" alt="kantin3">
+                </div>
+                <div class="div1">
+                    <img src="kantin4.jpg" alt="kantin4">
+                </div>
+            </div>
+
+        </div>
+
+
+        <nav class="bottom-nav">
+            <a href="#"><i class="fa-solid fa-house"></i></a>
+            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa-solid fa-user"></i></a>
+            <a href="#"><i class="fa-solid fa-user"></i></a>
+        </nav>
+
+
     </div>
-    <h1>Pilih Kantin <b>Favorit Kamu</b></h1>
-    <div>
-        <img src="kantin1.jpg" class="kantin" alt="kantin1">
-        <img src="kantin2.jpg" class="kantin" alt="kantin2">
-    </div>
-
-
-    <nav class="bottom-nav">
-        <a href="#"><i class="fa-solid fa-house"></i></a>
-        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-    </nav>
-
-
-
 </body>
 
 </html>
