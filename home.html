@@ -6,137 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>KantinKita</title>
+        <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            background-color: #F47B20;
-            margin: 0 auto;
-            color: white;
-            padding-bottom: 80px;
-
-        }
-
-
-
-        .logo {}
-
-        .logo img {
-
-            width: 40%;
-            min-width: 180px;
-            max-width: 400px;
-            height: auto;
-            padding: 16px 24px;
-        }
-
-
-        .teks {
-            font-family: 'Poppins', sans-serif;
-
-            /* font-family: "Poppins";
-            font-size: 32px;
-            font-family: Poppins; */
-            font-weight: 400;
-            font-style: Light;
-            font-size: 32px;
-            padding: 20px;
-            line-height: 29px;
-            letter-spacing: -2%;
-
-        }
-
-        .teks b {
-            font-weight: 600;
-            /* bold */
-        }
-
-        .kantin {}
-
-        /* CSS FOTO KANTIN  */
-        .parent {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 10px;
-
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-
-        .div1 {
-            grid-row: span 1 / span 1;
-            padding: 5px 10px 16px 0px;
-
-        }
-
-
-
-        .div1 img {
-            width: 100%;
-            width: 80%;
-            margin: 0px auto;
-            display: block;
-            border-radius: 20px;
-        }
-
-        @media (max-width: 768px) {
-
-            .parent {
-                grid-template-columns: 1fr;
-                /* tetap 1 kolom */
-                justify-items: center;
-
-            }
-
-            .div1 {
-                width: 85%;
-                max-width: 300px;
-                padding-bottom: 40px;
-            }
-
-        }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 15px 0;
-            background: white;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 20px 20px 0 0;
-        }
-
-
-        body {}
-
-        .bottom-nav a {
-            padding: 10px;
-            color: #333;
-
-
-        }
-
-        .bottom-nav a {
-
-            font-size: 30px;
-
-        }
-
-        .bottom-nav a:active {
-            color: orange;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
 
 
-
+        <!-- LOGO -->
         <div class="logo">
             <img src="logo.svg" alt="KantinKita">
         </div>

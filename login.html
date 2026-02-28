@@ -1,107 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KantinKita</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            background-color: rgb(245, 124, 31);
-            margin: 0;
-            color: white;
-        }
-
-
-
-        .logo {
-            padding-left: 20px;
-        }
-
-        .logo img {
-            width: 277px;
-            height: auto;
-            display: block;
-            margin: 20px 0 0 0;
-        }
-
-        .kantin {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10%;
-            display: block;
-            margin: 15px auto;
-        }
-
-        .bottom-nav{
-            position: fixed;
-            left: 50%;  
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 400%;
-
-            justify-content: space-around;
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
-
-        }
-        .bottom-nav {
-
-            display: flex;
-            bottom: 0;
-            padding: 10px;
-            background: rgb(255, 255, 255);
-           justify-content: space-evenly;
-
-
-        }    
-
-        body {
-            padding-bottom: 80px;
-        }
-        
-        .bottom-nav a{
-            margin: 20px;
-            color: #333;
-
-
-        }
-
-        .bottom-nav a {
-         
-            font-size: 30px;
-
-        }
-
-        .bottom-nav a:active {
-            color: orange;
-        }
-        
-    </style>
-</head>
-
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  
 <body>
+     <div class="logo">
+            <img src="logo.svg" alt="KantinKita">
+        </div>
+        <h1 class="teks"><b>Pilih Status Anda</b> Terlebih dahulu</h1>
 
-    <div class="logo">
-        <img src="logo.svg" alt="KantinKita">
-    </div>
-    <h1>Pilih Kantin <b>Favorit Kamu</b></h1>
-    <div>
-        <img src="kantin1.jpg" class="kantin" alt="kantin1">
-        <img src="kantin2.jpg" class="kantin" alt="kantin2">
-    </div>
+      <a href="#siswa">Siswa</a>
+      <div id="siswa">
+        <img src="logo.svg" alt="logo">
+        <form action="lg_siswa">
+               <p>Lengkapi <b>Identitas Anda</b></p>
 
+        <input type="email" placeholder="Masukkan email">
+        <input type="password" placeholder="Sandi email">
+        <input type="number" placeholder="NISN">
+        <button type="submit">Log in</button>
+        </form>
+     
 
-    <nav class="bottom-nav">
-        <a href="#"><i class="fa-solid fa-house"></i></a>
-        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-    </nav>
-
-
-
-</body>
-
+      </div>
 </html>
