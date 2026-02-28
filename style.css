@@ -1,9 +1,8 @@
 body {
-            background-color: #F47B20;
+         background-color: #F47B20;
             margin: 0 auto;
             color: white;
             padding-bottom: 80px;
-
         }
 
 
@@ -59,23 +58,59 @@ body {
 
         }
 
-
-
         .div1 img {
             width: 100%;
-            width: 80%;
-            margin: 0px auto;
+            max-width: 280px;
+            margin: 0 auto;
             display: block;
             border-radius: 20px;
+        }
+
+       .container {
+            margin-left: 80px;
+            padding: 40px;
+            min-height: 100vh;
+            border-radius: 30px 0 0 0;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .side-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column; /* turun ke bawah */
+            align-items: center;
+            padding-top: 20px;
+            gap: 25px;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+        }
+
+        .side-nav a {
+            padding: 10px;
+            font-size: 30px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .side-nav a:hover {
+            color: #F47B20;
         }
 
         @media (max-width: 768px) {
 
             .parent {
-                grid-template-columns: 1fr;
-                /* tetap 1 kolom */
-                justify-items: center;
-
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 40px;
             }
 
             .div1 {
@@ -84,38 +119,18 @@ body {
                 padding-bottom: 40px;
             }
 
-        }
+            .side-nav {
+                position: fixed;
+                bottom: 0;
+                top: auto;
+                width: 100%;
+                height: 70px;
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 0;
+            }
 
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 15px 0;
-            background: white;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 20px 20px 0 0;
-        }
-
-
-        body {}
-
-        .bottom-nav a {
-            padding: 10px;
-            color: #333;
-
-
-        }
-
-        .bottom-nav a {
-
-            font-size: 30px;
-
-        }
-
-        .bottom-nav a:active {
-            color: orange;
-        }
+            .top-bar {
+                margin-left: 0;
+            }
+        }   
