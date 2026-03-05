@@ -7,14 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .form section{
-      background-color: white;
-      border-radius: 20px;
-     
     
-     
-      
-    }
   </style>
 </head>
 

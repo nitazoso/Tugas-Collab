@@ -12,24 +12,30 @@
 </head>
 
 <body>
+   
+ <!-- LOGO -->
+            <div class="logo">
+                <img src="icon/logo.svg" alt="KantinKita">
+            </div>
 
-    <nav class="side-nav">
-        <a href="#"><i class="fa-solid fa-house"></i></a>
-        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-    </nav>
+ <div class="top-nav">
+<nav class="menu">
+        <a href="#">
+            <img src="icon/home2.svg" alt=" home">Beranda
+        </a>
+        <a href="#">
+            <img src="icon/pesanan1.svg" alt="">Pesanan
+        </a>
+        <a href="#">
+            <img src="icon/user1.svg" alt="">Profil
+        </a>
+    </nav> 
+    </div>
+     
 
     <div class="container">       
 
-        <div class="top-bar">
-
-            <!-- LOGO -->
-            <div class="logo">
-                <img src="logo.svg" alt="KantinKita">
-            </div>
-
-        </div>
+          
 
         <h1 class="teks">Pilih Kantin <b>Favorit Kamu</b></h1>
 
