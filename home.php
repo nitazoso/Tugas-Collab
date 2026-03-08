@@ -46,16 +46,16 @@
             <div class="parent">
                 <div class="div1">
                     <img src="kantin1.jpg" alt="kantin1">
-                    <a href="kantin">
-                        kantin ceria
+                    <a href="menu_kantin.php?id_kantin=1">
+                        Bu Sikma
                     </a>
                 </div>
 
                 <div class="div1">
                     <img src="kantin2.jpg" alt="kantin2">
-                    <a href="kantin">
-                        kantin2
-                    </a>
+                    <a href="menu_kantin.php?id_kantin=2">
+                        Pak Mewing
+                    </a> 
                 </div>
 
                 <div class="div1">
