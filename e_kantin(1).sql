@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Mar 2026 pada 14.19
+-- Waktu pembuatan: 13 Mar 2026 pada 05.37
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -49,8 +49,16 @@ CREATE TABLE `tb_kantin` (
   `lokasi` varchar(50) DEFAULT NULL,
   `foto_kantin` varchar(255) DEFAULT NULL,
   `jam_operasional` varchar(50) DEFAULT NULL,
-  `nmid` varchar(50) DEFAULT NULL
+  `Qris` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_kantin`
+--
+
+INSERT INTO `tb_kantin` (`id_kantin`, `id_penjual`, `nama_kantin`, `lokasi`, `foto_kantin`, `jam_operasional`, `Qris`) VALUES
+(1, NULL, 'Bu Sikma', NULL, 'kantin1.jpg', '06.00-13.00', ''),
+(2, NULL, 'Pak Mewing', NULL, 'kantin2.jpg', '06.00-13.00', '');
 
 -- --------------------------------------------------------
 
@@ -62,13 +70,27 @@ CREATE TABLE `tb_menu` (
   `id_menu` int(11) NOT NULL,
   `id_kantin` int(11) DEFAULT NULL,
   `nama_menu` varchar(100) NOT NULL,
-  `harga` decimal(10,2) NOT NULL,
+  `harga` int(11) NOT NULL,
   `kategori` enum('makanan','minuman','snack') NOT NULL,
   `stok` int(11) DEFAULT 0,
   `status` enum('tersedia','habis') DEFAULT 'tersedia',
   `foto_menu` varchar(255) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_menu`
+--
+
+INSERT INTO `tb_menu` (`id_menu`, `id_kantin`, `nama_menu`, `harga`, `kategori`, `stok`, `status`, `foto_menu`, `deskripsi`) VALUES
+(1, 1, 'Mie Ayam', 10000, 'makanan', 1000, 'tersedia', 'mieayam.jpg', NULL),
+(2, 1, 'Bakso', 10000, 'makanan', 100, 'tersedia', 'bakso.jpg', NULL),
+(3, 2, 'Es Teh', 5000, 'minuman', 1000, 'tersedia', 'esteh.jpg', NULL),
+(4, 2, 'Ayam Geprek', 10000, 'makanan', 90, 'tersedia', 'ayamgeprek.jpg', NULL),
+(5, 1, 'Ayam Goreng', 10000, 'makanan', 100, 'tersedia', 'ayamgoreng.jpg', NULL),
+(6, 2, 'Dimsum', 15000, 'snack', 100, 'tersedia', 'dimsum.jpg', NULL),
+(7, 2, 'Pop Ice', 3000, 'minuman', 50, 'tersedia', 'popice.jpg', NULL),
+(8, 1, 'Soto Ayam', 10000, 'makanan', 90, 'tersedia', 'sotoayam.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,7 +144,10 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `email`, `password`, `nama_lengkap`, `role`, `nisn`, `nuptk`, `no_hp`) VALUES
-(1, 'admin@kantinkita.com', 'admin404', 'Admin KantinKita', 'admin', NULL, NULL, NULL);
+(1, 'admin@kantinkita.com', 'admin404', 'Admin KantinKita', 'admin', NULL, NULL, NULL),
+(2, 'siswa@gmail.com', '12345', 'Ririn Wahyuni', 'siswa', '12345678', NULL, NULL),
+(3, 'guru@gmail.com', '12345', 'Pak Budi', 'guru', NULL, '99887766', NULL),
+(4, 'penjual@gmail.com', '12345', 'Bu Sari', 'penjual', NULL, NULL, '08123456789');
 
 --
 -- Indexes for dumped tables
@@ -186,13 +211,13 @@ ALTER TABLE `tb_detail_transaksi`
 -- AUTO_INCREMENT untuk tabel `tb_kantin`
 --
 ALTER TABLE `tb_kantin`
-  MODIFY `id_kantin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kantin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_menu`
 --
 ALTER TABLE `tb_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_rating`
@@ -210,7 +235,7 @@ ALTER TABLE `tb_transaksi`
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
