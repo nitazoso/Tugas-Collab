@@ -110,6 +110,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
    
  <!-- LOGO -->
         <div class="logo-mobile">
@@ -135,57 +136,101 @@
             <img src="icon/user1.svg" alt=""><span>Profil</span>
         </a>
     </nav> 
+=======
+    <div class="logo">
+        <img src="icon/logo.svg" alt="KantinKita">
+>>>>>>> 0322b9f240d38da0670a6b0dd58a9376b3aa2263
     </div>
-     
 
+<<<<<<< HEAD
     <div class="container">       
         <h1 class="teks">Pilih Kantin <b>Favorit Kamu</b></h1>
+=======
+    <div class="top-nav">
+        <nav class="menu">
+            <a href="#">
+                <img src="icon/home2.svg" alt=" home"> <span>Beranda</span>
+            </a>
+            <a href="#">
+                <img src="icon/pesanan1.svg" alt=""><span>Pesanan</span>
+            </a>
+            <a href="#">
+                <img src="icon/user1.svg" alt=""><span>Profil</span>
+            </a>
+        </nav>
+    </div>
 
-        <!-- FOTO KANTIN -->
+    <div class="container">
+        <h1 class="teks">
+            Cari Menu <b>Yang Kamu Inginkan!</b>
+        </h1>
 
-        <div class="kantin">
+        <input type="text" placeholder="Mencari" class="search">
+>>>>>>> 0322b9f240d38da0670a6b0dd58a9376b3aa2263
 
-            <div class="parent">
-                <div class="div1">
-                    <img src="kantin1.jpg" alt="kantin1">
-                    <a href="menu_kantin.php?id_kantin=1">
-                        Bu Sikma
-                    </a>
-                </div>
+        <div class="kategori">
+            <button class="kat-btn">
+                <img src="icon/makanan.svg"> Makanan
+            </button>
+            <button class="kat-btn">
+                <img src="icon/minuman.svg"> Minuman
+            </button>
+            <button class="kat-btn">
+                <img src="icon/snack.svg"> Camilan
+            </button>
+        </div>
+    </div>
 
-                <div class="div1">
-                    <img src="kantin2.jpg" alt="kantin2">
-                    <a href="menu_kantin.php?id_kantin=2">
-                        Pak Mewing
-                    </a> 
-                </div>
-
-                <div class="div1">
-                    <img src="kantin3.jpg" alt="kantin3">
-                    <a href="kantin">
-                        kantin3
-                    </a>
-                </div>
-
-                <div class="div1">
-                    <img src="kantin4.jpg" alt="kantin4">
-                    <a href="kantin">
-                        kantin4
-                    </a>
-                </div>
-
-                <div class="div1">
-                    <img src="kantin5.jpg" alt="kantin4">
-                    <a href="kantin">
-                        kantin5
-                    </a>
-                </div>
-
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="kantin1.jpg">
+                <button class="kantin-btn">Kantin 1</button>
             </div>
-
+            <div class="slide">
+                <img src="kantin2.jpg">
+                <button class="kantin-btn">Kantin 2</button>
+            </div>
+            <div class="slide">
+                <img src="kantin3.jpg">
+                <button class="kantin-btn">Kantin 3</button>
+            </div>
+            <div class="slide">
+                <img src="kantin4.jpg">
+                <button class="kantin-btn">Kantin 4</button>
+            </div>
+            <div class="slide">
+                <img src="kantin5.jpg">
+                <button class="kantin-btn">Kantin 5</button>
+            </div>
+        </div> <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <div class= "menu-menu">
+        <div class ="menu-card"></div>
+            <img src="menu1.jpg">
+            <h3> mie ayam</h3>
+            <p>Rating: 5.5 ★★★</p>
+            <span> Rp 10k</span>
+        </div>
+        <div class ="menu-card"></div>
+            <img src="menu2.jpg">
+            <h3> batagor </h3>
+            <p>Rating: 5.5 ★★★</p>
+            <span> Rp 10k</span>
+        </div>
+        <div class ="menu-card"></div>
+            <img src="menu3.jpg">
+            <h3> batagor </h3>
+            <p>Rating: 5.5 ★★★</p>
+            <span> Rp 10k</span>
         </div>
 
-    </div>
-</body>
-
+</div>
+    </body>
 </html>
