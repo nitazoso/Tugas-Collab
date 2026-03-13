@@ -1,91 +1,25 @@
 body {
-    background-color: #F47B20;
+    background-color:#F47B20;
     margin: 0 auto;
     color: white;
     /* padding-bottom: 0px; */
 }
 
 
-.logo {
+.logo-desktop {
     display: flex;
     padding: 10px 0 0 20px;
 }
 
 
 
-.logo img {
+.logo-desktop img {
     width: auto;
     height: 40px;
     z-index: 1000;
 }
 
 
-.teks {
-    font-family: 'Poppins', sans-serif;
-
-    /* font-family: "Poppins";
-            font-size: 32px;
-            font-family: Poppins; */
-    font-weight: 200;
-    font-style: Light;
-    font-size: 32px;
-    padding: 20px;
-    line-height: 29px;
-    letter-spacing: -2%;
-
-}
-
-.teks b {
-    font-weight: 550;
-    /* bold */
-}
-
-.kantin {}
-
-/* CSS FOTO KANTIN  */
-.parent {
-
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    gap: 15px;
-    /* justify-content: center;
-    /* horizontal 
-    align-items: center; */
-    /* flex-wrap: wrap; */
-
-}
-
-.div1 {
-    /* grid-row: span 1 / span 1; */
-    width: 100%;
-
-    max-width: 180px;
-
-}
-
-.div1 a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    background-color: #B09B83;
-    padding: 10px 25px 10px 25px;
-    font-size: 20px;
-    border-radius: 50px;
-    place-items: center;
-    justify-self: center;
-
-}
-
-.div1 img {
-
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 20px;
-    display: block;
-    margin: 10px;
-}
 
 .container {
 
@@ -100,7 +34,7 @@ body {
     top: 0;
     width: 100%;
     height: 60px;
-    background: #efefef;
+    background: #ffffff;
     display: flex;
     align-items: center;
     padding: 0 0px;
@@ -133,30 +67,26 @@ body {
     color: #F47B20;
 }
 
+.logo-mobile img {
+    width: auto;
+    height: 40px;  
+    padding: 20px 0 0 20px;
+    
+}
+
+@media (min-width: 881px) {
+  .logo-mobile { display: none; }
+  .logo-desktop { display: flex; align-items: center; padding: 10px; }
+}
+
 @media (max-width: 880px) {
+  
+    .logo-desktop { display: none; }
+     .logo-mobile { display: flex; align-items: center; width: auto;
+    height: 40px; }
     .container {
         margin: 25px;
         padding: 0;
-    }
-
-    .parent {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 10px;
-        justify-content: center;
-        scroll-behavior: smooth;
-        place-items: center;
-    }
-
-    div img {
-        /* margin: auto; */
-    }
-
-    .div1 {
-
-        width: 75%;
-        max-width: 300px;
-        padding-bottom: 40px;
     }
 
     .top-nav {
@@ -241,3 +171,4 @@ body {
     outline: none;
     padding: 20px 45px 20px 20px;  
 }
+
