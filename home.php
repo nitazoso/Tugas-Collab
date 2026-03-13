@@ -21,13 +21,13 @@
  <div class="top-nav">
 <nav class="menu">
         <a href="#">
-            <img src="icon/home2.svg" alt=" home">Beranda
+            <img src="icon/home2.svg" alt=" home"> <span>Beranda</span>
         </a>
         <a href="#">
-            <img src="icon/pesanan1.svg" alt="">Pesanan
+            <img src="icon/pesanan1.svg" alt=""><span>Pesanan</span>
         </a>
         <a href="#">
-            <img src="icon/user1.svg" alt="">Profil
+            <img src="icon/user1.svg" alt=""><span>Profil</span>
         </a>
     </nav> 
     </div>
