@@ -50,7 +50,7 @@ if($data){
     $_SESSION['role'] = $data['role'];
 
     if($data['role'] == "siswa"){
-        header("Location: siswa/dashboard.php");
+        header("Location: siswa/home.php");
     }
 
     elseif($data['role'] == "guru"){

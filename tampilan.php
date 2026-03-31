@@ -18,11 +18,12 @@
     <div>
         <h1> <p>Kantin Satu</p> Pak Agus</h1>
     </div>
-    <div class="search">
+    <!-- ---------------SEARCH------------- -->
+    <div class="mencari">
 
         <form action="search_menu.php" method="GET">
 
-         <input type="text" name="search" placeholder="Cari menu...">
+         <input type="text" name="search" placeholder="Cari menu..." class="search" >
 
             <button type="submit">
 
@@ -30,7 +31,8 @@
             </button>
 
         </form>
-
+  
     </div>
+     <!-- -------------------- /SEARCH--------------------- -->
 </body>
 </html>
