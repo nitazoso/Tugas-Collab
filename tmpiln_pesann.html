@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kantin</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f2f2f2;
+}
+
+/* HEADER */
+.header{
+  position:relative;
+  padding:15px;
+}
+
+.back{
+  position:absolute;
+  left:10px;
+  top:15px;
+  font-size:20px;
+  cursor:pointer;
+  color: orange;
+}
+
+.fav{
+  position:absolute;
+  right:10px;
+  top:15px;
+  font-size:20px;
+  cursor:pointer;
+  color: orange;
+}
+
+/* CARD */
+.container{
+  padding:15px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+.price{
+  color:orange;
+  font-weight:900;
+  float:right;
+  margin-top:3px;
+}
+
+.rating span{
+  font-size:20px;
+  cursor:pointer;
+  color:gray;
+}
+
+.rating span.active{
+  color:orange;
+}
+
+.avg-rating{
+  font-size:14px;
+  margin-top:5px;
+}
+
+select{
+  padding:5px;
+  border-radius:5px;
+}
+
+.jumlah{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.jumlah button{
+  width:30px;
+  height:30px;
+  background:orange;
+  color:white;
+  border:none;
+  border-radius:10px;
+}
+
+.pesan{
+  background:orange;
+  color:white;
+  text-align:center;
+  padding:12px;
+  border-radius:20px;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+.metode{
+  margin-top:15px;
+}
+
+.metode button{
+  width:100%;
+  padding:15px;
+  background:orange;
+  color:white;
+  border:none;
+  border-radius:10px;
+}
+
+/* QRIS PAGE */
+.qris{
+  display:none;
+  text-align:center;
+  padding:20px;
+}
+
+/* LOADING */
+.loading{
+  margin-top:15px;
+  color:gray;
+}
+
+/* NOTIF */
+.notif{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:80%;    
+  max-width:300px;   
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  z-index:9999;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN ORDER -->
+<div id="orderPage">
+
+<div class="header">
+  <div class="back" onclick="alert('Kembali')">⬅</div>
+  <div class="fav" onclick="toggleFav(this)">♡</div>
+</div>
+
+<div class="container">
+  <div class="card">
+
+    <img src="IMG_20260326_101829.jpg";
+    
+    <h3>Nasi Goreng <span class="price">Rp 10K</span></h3>
+
+    <div class="rating">
+  <span onclick="setRating(this,1)">☆</span>
+  <span onclick="setRating(this,2)">☆</span>
+  <span onclick="setRating(this,3)">☆</span>
+  <span onclick="setRating(this,4)">☆</span>
+  <span onclick="setRating(this,5)">☆</span>
+  </div>
+
+<div class="avg-rating">
+  ⭐ <span class="avg">0</span> ( <span class="count">0</span> orang )
+  </div>
+
+    <p>Rasa:
+      <select>
+        <option>Tidak Pedas</option>
+        <option>Pedas</option>
+        <option>Sangat Pedas</option>
+      </select>
+    </p>
+
+    <!-- JUMLAH -->
+    <div class="jumlah">
+      <span>Jumlah</span>
+      <button onclick="kurang()">-</button>
+      <span id="qty">1</span>
+      <button onclick="tambah()">+</button>
+    </div>
+
+    <!-- PESAN -->
+    <div class="pesan" onclick="pesan()">Pesan</div>
+
+    <!-- METODE -->
+    <div class="metode">
+      <h4>pembayaran</h4>
+      <button onclick="pilihMetode('qris')">QRIS</button>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- HALAMAN QRIS -->
+<div id="qrisPage" class="qris">
+  <h2>Kantin Pak Jokowi</h2>
+  <p>NMID: 123456789</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=kantin">
+
+  <p id="loadingText" class="loading">Menunggu pembayaran...</p>
+  </div>
+
+<!-- NOTIF -->
+<div id="notif" class="notif"></div>
+
+<script>
+
+// FAVORIT
+function toggleFav(el){
+  el.innerText = (el.innerText=="♡") ? "❤️" : "♡";
+}
+
+// RATING
+function setRating(el, nilai){
+  let card = el.closest(".card");
+
+  // ⭐ ubah tampilan bintang
+  let stars = card.querySelectorAll(".rating span");
+  stars.forEach((s,i)=>{
+    s.textContent = i<nilai ? "★" : "☆";
+    s.classList.toggle("active", i<nilai);
+  });
+
+  // ambil data lama
+  let avgEl = card.querySelector(".avg");
+  let countEl = card.querySelector(".count");
+
+  let avg = parseFloat(avgEl.innerText);
+  let count = parseInt(countEl.innerText);
+
+  // hitung rata-rata baru
+  let total = avg * count;
+  total += nilai;
+  count += 1;
+
+  let newAvg = (total / count).toFixed(1);
+
+  // update tampilan
+  avgEl.innerText = newAvg;
+  countEl.innerText = count;
+}
+
+// JUMLAH
+let qty=1;
+function tambah(){
+  qty++;
+  document.getElementById("qty").innerText=qty;
+}
+function kurang(){
+  if(qty>1){
+    qty--;
+    document.getElementById("qty").innerText=qty;
+  }
+}
+
+// PESAN
+function pesan(){
+  alert("Pesanan diproses");
+}
+
+// PILIH METODE
+function pilihMetode(m){
+  if(m=="qris"){
+    document.getElementById("orderPage").style.display="none";
+    document.getElementById("qrisPage").style.display="block";
+
+    // OTOMATIS PROSES
+    setTimeout(()=>{
+      prosesPembayaran();
+    },3000);
+  }
+}
+
+// PROSES OTOMATIS
+function prosesPembayaran(){
+  document.getElementById("loadingText").innerText="Memproses pembayaran...";
+
+  setTimeout(()=>{
+    let sukses = Math.random() > 0.6;
+
+    if(sukses){
+      showNotif("Pembayaran Sukses ✅");
+    }else{
+      showNotif("Pembayaran Gagal ❌<br>Saldo Anda Kurang");
+    }
+  },2000);
+}
+
+// NOTIF
+function showNotif(text){
+  let notif=document.getElementById("notif");
+  notif.style.display="block";
+  notif.innerHTML = text + "<br><br><button onclick='reload()'>Kembali ke Beranda</button>";
+}
+
+// RELOAD
+function reload(){
+  location.reload();
+}
+
+</script>
+
+</body>
+  </html>
