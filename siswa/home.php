@@ -15,9 +15,10 @@ include "../koneksi.php";
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body{
-             font-family: 'Poppins', sans-serif;
+        body {
+            font-family: 'Poppins', sans-serif;
         }
+
         .teks {
             font-family: 'Poppins', sans-serif;
 
@@ -45,7 +46,7 @@ include "../koneksi.php";
             font-family: 'Poppins', sans-serif;
             display: grid;
             grid-template-columns: auto auto auto auto auto;
-           
+
             /* justify-content: center;
     /* horizontal 
     align-items: center; */
@@ -76,13 +77,13 @@ include "../koneksi.php";
         } */
 
         .div1 img {
-            
+
             width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 20px;
             display: block;
-           
+
         }
 
         .nama {
@@ -121,7 +122,7 @@ include "../koneksi.php";
             flex-direction: column;
             padding: 10px;
             margin: 8px;
-            box-shadow:0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
         }
 
         .text {
@@ -262,6 +263,12 @@ include "../koneksi.php";
             background-color: #fff;
         }
 
+        .kat-btn span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            padding: 0 5px 0 0;
+        }
+
         .kat-btn img {
             width: 45px;
             height: auto;
@@ -271,23 +278,17 @@ include "../koneksi.php";
 
             .parent {
                 display: grid;
-                grid-template-columns: repeat(2,1fr);
+                grid-template-columns: repeat(2, 1fr);
                 padding: 10px;
                 scroll-behavior: smooth;
-            }
-            
-
-            div img {
-                /* margin: auto; */
             }
 
             .div1 {
 
-                width:100%;
+                width: 100%;
                 max-width: 300px;
-     
-            }
 
+            }
 
             .slide {
                 min-width: 100%;
@@ -317,13 +318,13 @@ include "../koneksi.php";
     <div class="top-nav">
         <nav class="menu">
             <a href="#">
-                <img src="../icon/home2.svg" alt=" home"> <span>Beranda</span>
+                <img src="../icon/home2.svg" alt=" home"> <span class="nav-teks">Beranda</span>
             </a>
             <a href="#">
-                <img src="../icon/pesanan1.svg" alt=""><span>Pesanan</span>
+                <img src="../icon/pesanan1.svg" alt=""><span class="nav-teks">Pesanan</span>
             </a>
             <a href="#">
-                <img src="../icon/user1.svg" alt=""><span>Profil</span>
+                <img src="../icon/user1.svg" alt=""><span class="nav-teks">Profil</span>
             </a>
         </nav>
 
@@ -339,17 +340,16 @@ include "../koneksi.php";
         <div class="mencari">
 
             <form action="search_menu.php" method="GET">
-
-                <input type="text" name="search" placeholder="Cari menu..." class="search">
-
-                <button type="submit">
-                    <img src="../icon/cari.svg" alt="">
-                </button>
-
+                <div class="search-box">
+                    <input type="text" name="search" placeholder="Cari menu..." class="search">
+                    <button type="submit" class="btn-search">
+                        <img src="../icon/cari.svg" alt="" class="iconsch">
+                    </button>
+                </div>
             </form>
 
         </div>
-        <!-- -------------------- /SEARCH--------------------- -->
+        <!-- -------------------- /SEARCH-------------------- -->
 
 
         <div class="kategori">
@@ -360,45 +360,46 @@ include "../koneksi.php";
                 <img src="../icon/minuman.svg"> <span> Minuman</span>
             </button>
             <button class="kat-btn">
-                <img src="../icon/snack.svg"> <span>Camilan</span>
+                <img src="../icon/snack.svg"> <span> Camilan</span>
             </button>
         </div>
 
         <!-- -----------SLIDE--------------  -->
         <div class="slider">
             <div class="slides">
-                 <?php
-    $koneksi= mysqli_connect("localhost", "root", "", "e_kantin");
-    $result_kantin = mysqli_query($koneksi, "SELECT * FROM tb_kantin");
-    $no=1;
-    while ($row = mysqli_fetch_assoc($result_kantin)){
-    ?>
-                <div class="slide">
-                    <img src="../foto_kantin/<?php echo $row['foto_kantin'];?>">
-                    <button class="kantin-btn">Kantin <?php echo $no++;?></button>
-                </div>
                 <?php
-    }
-    ?>
+                   require_once '../koneksi.php';
+                $result_kantin = mysqli_query($koneksi, "SELECT * FROM tb_kantin");
+                $no = 1;
+                while ($row = mysqli_fetch_assoc($result_kantin)) {
+                ?>
+                    <div class="slide">
+                        <img src="../foto_kantin/<?php echo $row['foto_kantin']; ?>">
+                        <button class="kantin-btn">Kantin <?php echo $no++; ?></button>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="dots">
                 <?php
-                $jumlah_data=mysqli_num_rows($result_kantin);
-                for ($i=0;$i<$jumlah_data;$i++){
-                    $status_active=($i==0)?"active":"";
-                    ?>
-                    <span class="dot<?php echo $status_active;?>"></span>
-                    <?php
+                $result_jumlah = mysqli_query($koneksi, "SELECT * FROM tb_kantin");
+                $jumlah_data = mysqli_num_rows($result_jumlah);
+                for ($i = 0; $i < $jumlah_data; $i++) {
+                    $status_active = ($i == 0) ? "active" : "";
+                ?>
+                    <span class="dot<?php echo $status_active; ?>"></span>
+                <?php
                 }
                 ?>
-                
+
             </div>
         </div>
         <!-- -----------/  SLIDE--------------  -->
     </div>
 
     <?php
- $koneksi = mysqli_connect("localhost", "root", "", "e_kantin");
+    require_once '../koneksi.php';
     $result_menu = mysqli_query($koneksi, "SELECT * FROM tb_menu");
     ?>
     <div class="parent">
